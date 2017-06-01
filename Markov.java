@@ -1,40 +1,38 @@
 import java.util.ArrayList;
 
 public class Markov{
-
-    private int _frequency;
+	
     private String _substring;
-    private ArrayList<Entry> _array;
+    private ArrayList<Markov> _array; //stores subsequent Markovs
     
-    //construc
+    //constructor
     public Markov(String substring){
-	_frequency = 1;
 	_substring = substring;
-	_array = new ArrayList<Entry>();	    
+	_array = new ArrayList<Markov>();	    
     }
 
 
     
-    //getters
+    //accessors
+	
     public ArrayList<Entry> getArray(){
 	return _array;
     }
 
     public int getFrequency(){
-	return _frequency;
+	return _array.size();
     }
 
     public String getSubstring(){
 	return _substring;
     }
+	
 
-    
-
-    //changers and setters
-    
-
-    public void add(){
-	_frequency++;
+    //mutators
+	
+	//adds subsequent Markovs to _
+    public void add(Mark){
+	return;
     }
 
     
