@@ -7,7 +7,7 @@ public class Processor{
     for (int i = 0; i < arr.length - k; i++){
       String element;
       for (int j = 0; j < k; j++){
-        element += arr[i+j];
+        element += arr[i+j] + " ";
       }
       if (!containsKey(element)){
         Markov m = new Markov(element);
