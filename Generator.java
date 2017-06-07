@@ -1,4 +1,4 @@
-import java.util.Hashtable<K,V>;
+import java.util.Hashtable<String,Markov>;
 
 public class Generator{  
   
@@ -13,7 +13,7 @@ public class Generator{
     
     }
   
-    public static String[] generate(int k, Hashtable<K,V> hash, String [] beginning, int length){
+    public static String[] generate(int k, Hashtable<String,Markov> hash, String [] beginning, int length){
 	String [] output = new String[length];
 	for (int i = 0; i < beginning.length; i++)
 	    output[i] = beginning[i];
@@ -26,7 +26,7 @@ public class Generator{
 		prevK += output[back] + " ";
 		back++;
 	    }
-	    Markov m = Hashtable.get(prevK);     //not too sure how to deal with probability here
+	    Markov m = hash.get(prevK);     //not too sure how to deal with probability here
 	    output[counter].getRandomWord(m);
 	}
     
