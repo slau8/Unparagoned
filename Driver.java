@@ -11,7 +11,7 @@ public class Driver{
     String[] input = requestFile(s);
     int len = input.length;
     int k = requestK(s, len);
-    Hashtable hash = Processor.process(k,input);
+    Hashtable<String,Markov> hash = Processor.process(k,input);
     String [] beg = new String[k];
     for (int i = 0; i < k; i++){
       beg[i] = input[i];
