@@ -36,7 +36,7 @@ public class Markov{
 		for (String s : _array){
 			output += " " + s + ",";
 		}
-		output = output.substring()
+		output = output.substring(0,output.length()-1);
 		return output;
 	}
 
