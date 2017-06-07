@@ -34,7 +34,7 @@ public class Driver{
   
   // asks user for the file and converts it into a string
   public static String[] requestFile(Scanner s){
-    System.out.println("Enter the file name: ")
+    System.out.println("Enter the file name: ");
     String fileName = s.next();
     String[] input = ReadFile.readFileArray(fileName);
     return input;
@@ -42,11 +42,11 @@ public class Driver{
    
   // asks user for constant k to process string
   public static int requestK(Scanner s, int len){
-    System.out.println("Enter processing constant (a larger value will decrease variable): ";
+    System.out.println("Enter processing constant (a larger value will decrease variable): ");
     int k = s.nextInt();
     // check size of k
     while (k > len){
-     System.out.println("Constant exceeds text length. Enter another processing constant (a larger value will decrease variable): ";
+     System.out.println("Constant exceeds text length. Enter another processing constant (a larger value will decrease variable): ");
      k = s.nextInt();             
     }
     return k;
