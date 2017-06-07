@@ -13,9 +13,13 @@ public class Driver{
     int k = s.nextInt();
     
     // check size of k
-    
+    while (k > len){
+     System.out.println("Constant exceeds text length. Enter another processing constant (a larger value will decrease variable): ";
+     k = s.nextInt();             
+    }
+                       
     // process into hash
-    
+    // Hashtable hash = process(input,k);
     // creates an array of the first k words 
     String [] beg = new String[k];
     for (int i = 0; i < k; i++){
@@ -24,7 +28,6 @@ public class Driver{
     int len = input.length();
     String output = Generator.generate(k,hash,beg,len);
     System.out.println(output);
-   
   }
 
 }
