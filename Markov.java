@@ -32,11 +32,12 @@ public class Markov{
 	}
 
 	public String toString(){
-		String output = _substring + " (" + _frequency + "):";
+		String output = _substring + " : [";
 		for (String s : _array){
 			output += " " + s + ",";
 		}
 		output = output.substring(0,output.length()-1);
+		output += "]";
 		return output;
 	}
 
