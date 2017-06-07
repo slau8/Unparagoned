@@ -17,7 +17,7 @@ public class ReadFile{
 		}
 
 	    } catch (IOException e) {
-        return null;
+        return null; // returns null if not found for the Scanner to respond appropriately
       //e.printStackTrace();
 	}
 
@@ -26,7 +26,7 @@ public class ReadFile{
 
     public static String[] readFileArray(String textFile){
       if (readFile(textFile) == null)
-        return null;
+        return null; // if not a legit file, scanner will ask for another file name
 	return readFile(textFile).split(" ");
     }
 

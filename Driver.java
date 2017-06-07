@@ -12,6 +12,7 @@ public class Driver{
     int len = input.length;
     int k = requestK(s, len);
     Hashtable<String,Markov> hash = Processor.process(k,input);
+    // creates initial starting point for output
     String [] beg = new String[k];
     for (int i = 0; i < k; i++){
       beg[i] = input[i];
@@ -37,6 +38,7 @@ public class Driver{
     System.out.println("Enter the file name: ");
     String fileName = s.next();
     String[] input = ReadFile.readFileArray(fileName);
+    // null input means that the file does not exist; asks for another file
     while (input == null){
       System.out.println("File not found. Enter another file name: ");
       fileName = s.next();
@@ -49,7 +51,7 @@ public class Driver{
   public static int requestK(Scanner s, int len){
     System.out.println("Enter processing constant (a larger value will decrease variable): ");
     int k = s.nextInt();
-    // check size of k
+    // check size of k; asks for another k if greater than length
     while (k > len){
      System.out.println("Constant exceeds text length. Enter another processing constant (a larger value will decrease variable): ");
      k = s.nextInt();
