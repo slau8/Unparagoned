@@ -5,7 +5,7 @@ public class Driver{
   public static void main(String[] args){
     go();
   }
-  
+
   public static void go(){
     Scanner s = new Scanner(System.in);
     String[] input = requestFile(s);
@@ -21,36 +21,36 @@ public class Driver{
     System.out.println("Type N to model a new file, type END to end program.");
     String ans = s.next();
     if (ans == "N"){
-      go(); 
+      go();
     }
     else if (ans == "END"){
-      return; 
+      return;
     }
     else{
       System.out.println("Invalid entry. Program will end.");
       return;
     }
   }
-  
+
   // asks user for the file and converts it into a string
   public static String[] requestFile(Scanner s){
-    System.out.println("Enter the file name: ")
+    System.out.println("Enter the file name: ");
     String fileName = s.next();
     String[] input = ReadFile.readFileArray(fileName);
     return input;
   }
-   
+
   // asks user for constant k to process string
   public static int requestK(Scanner s, int len){
-    System.out.println("Enter processing constant (a larger value will decrease variable): ";
+    System.out.println("Enter processing constant (a larger value will decrease variable): ");
     int k = s.nextInt();
     // check size of k
     while (k > len){
-     System.out.println("Constant exceeds text length. Enter another processing constant (a larger value will decrease variable): ";
-     k = s.nextInt();             
+     System.out.println("Constant exceeds text length. Enter another processing constant (a larger value will decrease variable): ");
+     k = s.nextInt();
     }
     return k;
-  }                  
-                       
-                        
+  }
+
+
 }
