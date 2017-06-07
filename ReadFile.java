@@ -17,13 +17,16 @@ public class ReadFile{
 		}
 
 	    } catch (IOException e) {
-	    e.printStackTrace();
+        return null;
+      //e.printStackTrace();
 	}
 
 	return sOutput;
     }
 
     public static String[] readFileArray(String textFile){
+      if (readFile(textFile) == null)
+        return null;
 	return readFile(textFile).split(" ");
     }
 

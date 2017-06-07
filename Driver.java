@@ -37,6 +37,11 @@ public class Driver{
     System.out.println("Enter the file name: ");
     String fileName = s.next();
     String[] input = ReadFile.readFileArray(fileName);
+    while (input == null){
+      System.out.println("File not found. Enter another file name: ");
+      fileName = s.next();
+      input = ReadFile.readFileArray(fileName);
+    }
     return input;
   }
 
