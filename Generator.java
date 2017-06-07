@@ -26,7 +26,7 @@ public class Generator{
 		prevK += output[back] + " ";
 		back++;
 	    }
-	    Markov m = hash.get(prevK);     //not too sure how to deal with probability here
+	    Markov m = hash.get(prevK);     
 	    output[counter] = getRandomWord(m);
 	}
     
