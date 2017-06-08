@@ -14,6 +14,7 @@ public class Generator{
     }
 
     public static String generate(int k, Hashtable<String,Markov> hash, String [] beginning, int length){
+	
 	String [] output = new String[length];
 	for (int i = 0; i < beginning.length; i++)
 	    output[i] = beginning[i];
@@ -26,7 +27,10 @@ public class Generator{
 		prevK += output[back] + " ";
 		back++;
 	    }
+	    
 	    Markov m = hash.get(prevK);     //not too sure how to deal with probability here
+	    //System.out.println(m.toString());
+
 	    output[counter] = getRandomWord(m);
 	}
 
