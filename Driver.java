@@ -7,24 +7,29 @@ public class Driver{
   }
 
   public static void go(){
+      
     Scanner s = new Scanner(System.in);
     String[] input = requestFile(s);
     int len = input.length;
     int k = requestK(s, len);
     Hashtable<String,Markov> hash = Processor.process(k,input);
+    
     // creates initial starting point for output
     String [] beg = new String[k];
     for (int i = 0; i < k; i++){
       beg[i] = input[i];
     }
+	 
     String output = Generator.generate(k,hash,beg,len);
     System.out.println(output);
+
+    
     System.out.println("Type N to model a new file, type END to end program.");
     String ans = s.next();
-    if (ans == "N"){
+    if (ans.equals("N")){
       go();
     }
-    else if (ans == "END"){
+    else if (ans.equals("END")){
       return;
     }
     else{
@@ -33,17 +38,23 @@ public class Driver{
     }
   }
 
+    
+
   // asks user for the file and converts it into a string
   public static String[] requestFile(Scanner s){
+      
     System.out.println("Enter the file name: ");
+    
     String fileName = s.next();
     String[] input = ReadFile.readFileArray(fileName);
+    
     // null input means that the file does not exist; asks for another file
     while (input == null){
       System.out.println("File not found. Enter another file name: ");
       fileName = s.next();
       input = ReadFile.readFileArray(fileName);
     }
+    
     return input;
   }
 
