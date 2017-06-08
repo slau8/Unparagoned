@@ -60,11 +60,20 @@ public class Driver{
 
   // asks user for constant k to process string
   public static int requestK(Scanner s, int len){
-    System.out.print("Enter processing constant (a larger value will decrease variable): ");
-    int k = s.nextInt();
+    System.out.print("Enter processing constant (a larger value will decrease variability; the minimum value is 1): ");
+    int k;
+    do{
+      try{
+        String kString = s.next();
+        k = Integer.parseInt(kString);
+        break;
+      } catch (Exception e){
+        System.out.print("Input must be an integer. Enter another processing constant (a larger value will decrease variability): ");
+      }
+    } while (true);
     // check size of k; asks for another k if greater than length
-    while (k > len){
-     System.out.print("Constant exceeds text length. Enter another processing constant (a larger value will decrease variable): ");
+    while (k > len || k < 1){
+     System.out.print("Constant exceeds text length or is less than 1. Enter another processing constant (a larger value will decrease variability): ");
      k = s.nextInt();
     }
     return k;
