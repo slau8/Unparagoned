@@ -4,13 +4,8 @@ public class Generator{
 
     private static String getRandomWord(Markov m){
 	// return a random word generated from the array of a given Markov
-
-	//im not sure how to make it get a RANDOM element
-
 	int index = (int) (Math.random() * m.getFrequency());
-
 	return m.getArray().get(index);
-
     }
 
     public static String generate(int k, Hashtable<String,Markov> hash, String [] beginning, int length){
@@ -28,7 +23,7 @@ public class Generator{
 		back++;
 	    }
 	    
-	    Markov m = hash.get(prevK);     //not too sure how to deal with probability here
+	    Markov m = hash.get(prevK);
 	    //System.out.println(m.toString());
 
 	    output[counter] = getRandomWord(m);
