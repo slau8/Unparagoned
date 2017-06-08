@@ -7,24 +7,24 @@ public class Driver{
   }
 
   public static void go(){
-      
+
     Scanner s = new Scanner(System.in);
     String[] input = requestFile(s);
     int len = input.length;
     int k = requestK(s, len);
     Hashtable<String,Markov> hash = Processor.process(k,input);
-    
+
     // creates initial starting point for output
     String [] beg = new String[k];
     for (int i = 0; i < k; i++){
       beg[i] = input[i];
     }
-	 
+
     String output = Generator.generate(k,hash,beg,len);
     System.out.println(output);
 
-    
-    System.out.println("Type N to model a new file, type END to end program.");
+
+    System.out.print("Type N to model a new file, type END to end program: ");
     String ans = s.next();
     if (ans.equals("N")){
       go();
@@ -38,33 +38,33 @@ public class Driver{
     }
   }
 
-    
+
 
   // asks user for the file and converts it into a string
   public static String[] requestFile(Scanner s){
-      
-    System.out.println("Enter the file name: ");
-    
+
+    System.out.print("Enter the file name: ");
+
     String fileName = s.next();
     String[] input = ReadFile.readFileArray(fileName);
-    
+
     // null input means that the file does not exist; asks for another file
     while (input == null){
-      System.out.println("File not found. Enter another file name: ");
+      System.out.print("File not found. Enter another file name: ");
       fileName = s.next();
       input = ReadFile.readFileArray(fileName);
     }
-    
+
     return input;
   }
 
   // asks user for constant k to process string
   public static int requestK(Scanner s, int len){
-    System.out.println("Enter processing constant (a larger value will decrease variable): ");
+    System.out.print("Enter processing constant (a larger value will decrease variable): ");
     int k = s.nextInt();
     // check size of k; asks for another k if greater than length
     while (k > len){
-     System.out.println("Constant exceeds text length. Enter another processing constant (a larger value will decrease variable): ");
+     System.out.print("Constant exceeds text length. Enter another processing constant (a larger value will decrease variable): ");
      k = s.nextInt();
     }
     return k;
