@@ -72,8 +72,8 @@ public class Driver{
       }
     } while (true);
     // check size of k; asks for another k if greater than length
-    while (k > len || k < 1){
-     System.out.print("Constant exceeds text length or is less than 1. Enter another processing constant (a larger value will decrease variability): ");
+    while (k > len || k < 0){
+     System.out.print("Constant exceeds text length or is less than 0. Enter another processing constant (a larger value will decrease variability): ");
      k = s.nextInt();
     }
     return k;
